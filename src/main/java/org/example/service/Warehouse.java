@@ -4,6 +4,7 @@ import org.example.entities.Category;
 import org.example.entities.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Warehouse {
@@ -19,6 +20,7 @@ public void addProduct (String name, Category category, int rating){
    this.products.add(new Product(name, category, rating));
 }
 
+
 public void editProduct(String name, Category category, int rating, String id) {
 for (Product item : products) {
    if(item.getId().equals(id)) {
@@ -29,4 +31,9 @@ for (Product item : products) {
    }
 }
 }
+public final List<Product> getAllProducts() {
+   return products;
+}
+
+
 }
