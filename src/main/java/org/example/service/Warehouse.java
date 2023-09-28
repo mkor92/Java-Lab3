@@ -5,6 +5,8 @@ import org.example.entities.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 
 public class Warehouse {
@@ -30,6 +32,12 @@ for (Product item : products) {
 
    }
 }
+}
+
+public final Optional<Product> getOneProduct(String id) {
+  return products.stream()
+          .filter(product -> product.getId().equals(id))
+          .findFirst();
 }
 public final List<Product> getAllProducts() {
    return products;

@@ -17,6 +17,8 @@ public class App {
 
         icaMaxi.editProduct("Eluttag", Category.ELECTRONICS, 5, product);
         icaMaxi.getAllProducts().forEach(System.out::println);
+        System.out.println(icaMaxi.getOneProduct(product));
+
 
 
     }
