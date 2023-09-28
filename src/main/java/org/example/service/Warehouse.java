@@ -4,7 +4,7 @@ import org.example.entities.Category;
 import org.example.entities.Product;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Warehouse {
 

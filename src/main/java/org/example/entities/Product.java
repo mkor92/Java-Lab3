@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Product {
 
-   public static String name;
+   static String name;
     int rating;
    Category category;
   String id;
@@ -39,7 +39,7 @@ public class Product {
         this.category = category;
     }
 
-    public static void setName(String name) {
+    public void setName(String name) {
         Product.name = name;
     }
 }
