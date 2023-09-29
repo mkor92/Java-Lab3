@@ -3,10 +3,12 @@ package org.example.service;
 import org.example.entities.Category;
 import org.example.entities.Product;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
+
 
 
 public class Warehouse {
@@ -43,5 +45,21 @@ public final List<Product> getAllProducts() {
    return products;
 }
 
+public final List<Product> getProductsInCategorySortedByName(Category category){
+   return products.stream()
+           .filter(product -> product.getCategory() == category)
+           .sorted(Comparator.comparing(Product::getName))
+           .toList();
+}
+public final List<Product> getProductsFromDate(LocalDateTime date) {
+   return products.stream()
+           .filter(product -> product.getCreationDate().isAfter(date))
+           .toList();
+}
+public final List<Product> getModifiedProducts() {
+   return products.stream()
+           .filter(product -> product.toString().contains("Modified"))
+           .toList();
+}
 
 }

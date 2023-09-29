@@ -1,5 +1,8 @@
 package org.example.entities;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.UUID;
 
 public class Product {
@@ -8,6 +11,9 @@ public class Product {
     int rating;
    Category category;
   String id;
+  final LocalDateTime creationDate;
+  final LocalDateTime modificationDate;
+
 
 
     public Product(String name, Category category, int rating) {
@@ -15,6 +21,8 @@ public class Product {
     this.rating = rating;
     this.category = category;
     this.id = String.valueOf(UUID.randomUUID());
+    this.creationDate = LocalDateTime.now();
+    this.modificationDate = LocalDateTime.now();
     
     }
 
@@ -42,14 +50,26 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+        if (!creationDate.equals(modificationDate)) {
+            return "Product: " +
+                    "id=" + id +
+                    ", name=" + name +
+                    ", category=" + category +
+                    ", rating=" + rating +
+                    ", Created=" + creationDate +
+                    ", Modified=" + modificationDate;
+        }
+        else  return "Product: " +
+                "id=" + id +
+                ", name=" + name +
                 ", category=" + category +
                 ", rating=" + rating +
-                '}';
+                ", Created=" + creationDate;
     }
 }
