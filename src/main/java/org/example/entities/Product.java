@@ -1,8 +1,8 @@
 package org.example.entities;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 import java.util.UUID;
 
 public class Product {
@@ -29,9 +29,7 @@ public class Product {
     public String getId() {
         return id;
     }
-    public int getRating() {
-        return rating;
-    }
+
     public Category getCategory() {
         return category;
     }
